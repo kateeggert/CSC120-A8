@@ -1,7 +1,9 @@
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.Map.Entry;
-
+/**
+ * Represents a library
+ */
 public class Library extends Building implements LibraryRequirements {
 
     //Attributes
@@ -35,7 +37,7 @@ public class Library extends Building implements LibraryRequirements {
      * @param name string name of library
      * @param address string address of library
      * @param nFloors int number of floors
-     */
+    */
     public Library(String name, String address, int nFloors) {
         super(name, address, nFloors);
         this.collection = new Hashtable<String, Boolean>();
@@ -73,8 +75,9 @@ public class Library extends Building implements LibraryRequirements {
      */
     public void checkOut(String title) {
         if (!containsTitle(title)) {
-        throw new RuntimeException("Title not found");
-        } else if (!isAvailable(title)) {
+            throw new RuntimeException("Title not found");
+        }
+        if (!isAvailable(title)) {
             throw new RuntimeException("Title not available");
         } else {
         collection.replace(title, false);
@@ -89,9 +92,10 @@ public class Library extends Building implements LibraryRequirements {
      */
     public void returnBook(String title) {
         if (!containsTitle(title)) {
-        throw new RuntimeException("Title not found");
-        } else if(isAvailable(title)) {
-        throw new RuntimeException("Title is not checked out");
+            throw new RuntimeException("Title not found");
+        } 
+        if(isAvailable(title)) {
+            throw new RuntimeException("Title is not checked out");
         } else {
         collection.replace(title, true);
         }
@@ -104,9 +108,9 @@ public class Library extends Building implements LibraryRequirements {
      */
     public boolean containsTitle(String title) {
         if (collection.containsKey(title)) {
-        return true;
+            return true;
         } else {
-        return false;
+            return false;
         }
     }
 
@@ -117,9 +121,9 @@ public class Library extends Building implements LibraryRequirements {
      */
     public boolean isAvailable(String title) {
         if (collection.get(title) == true) {
-        return true;
+            return true;
         } else {
-        return false;
+            return false;
         }
     }
 
@@ -144,7 +148,8 @@ public class Library extends Building implements LibraryRequirements {
      */
     @Override
     public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + addTitle(title) \n + removeTitle(title) \n + checkOut(title) \n + returnBook(title) \n + isAvailable(title) \n + printCollection()");
+        super.showOptions();
+        System.out.println("\n + addTitle(title) \n + removeTitle(title) \n + checkOut(title) \n + returnBook(title) \n + isAvailable(title) \n + printCollection()");
     } 
 
     /**

@@ -1,4 +1,6 @@
-/* This is a stub for the Cafe class */
+/**
+ * Represents a Cafe
+ */
 public class Cafe extends Building implements CafeRequirements {
 
     // Attributes
@@ -91,7 +93,8 @@ public class Cafe extends Building implements CafeRequirements {
      */
     @Override
     public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + sellCoffee(size, nSugarPackets, nCreams)");
+        super.showOptions();
+        System.out.println("\n + sellCoffee(size, nSugarPackets, nCreams)");
     } 
 
     /**

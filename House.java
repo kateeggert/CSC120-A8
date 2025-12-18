@@ -1,5 +1,7 @@
 import java.util.ArrayList;
-
+/**
+ * Represents a house
+ */
 public class House extends Building implements HouseRequirements {
   
     // Attributes
@@ -110,7 +112,8 @@ public class House extends Building implements HouseRequirements {
      */
     @Override
         public void showOptions() {
-            System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + hasDiningRoom() \n + nResidents() \n + moveIn(s) \n + moveOut(s) \n + isResident(s)");
+            super.showOptions();
+            System.out.println("\n + hasDiningRoom() \n + nResidents() \n + moveIn(s) \n + moveOut(s) \n + isResident(s)");
         } 
 
     /**
